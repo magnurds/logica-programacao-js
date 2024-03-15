@@ -50,6 +50,7 @@ console.log(`Reatribuindo para o resto da divisao por 10: ${numero %= 10}`);
 console.log(`Incrementando o número em 1: ${++ numero}`);
 console.log(`Decrementando o número em 1: ${-- numero}`);
 console.log(`O numero final é igual a ${numero}`);
+console.log(`O numero1 elevado à potência do numero2  ${numero1 ** numero2}`);
 ~~~
 
 Operadores de atribuição:
@@ -62,5 +63,21 @@ Operadores de atribuição:
 * `%=` -> atribuição com  resto da divisão
 * `++` -> atribuição com  **incremento 1** (pode ser *pré* ou *pós* incrementado). Ex: `número++`(pós incremento) ou `++numero`(pré-incremento)
 * `--` -> atribuição com  **decremento 1** (pode ser *pré* ou *pós* decrementado). Ex: `numero--`(pós-decremento) ou `--numero`(pré-decremento)
- 
 
+ 
+Esta estrutura exibe no arquivo
+
+## operadores-compsracao.js
+Neste arquivo conhecemos os operadores de comparacao e a estrutura lógica de decisão **if-else**.
+
+* `==`  -> é igual
+* `!=`  -> não é igual
+* `>`   -> maior que
+* `<`   -> menor que
+* `>=`  -> maior ou igual
+* `<=`  -> menorou igual
+* `===` -> é estritamente igual (valor e tipo)
+* `!==` -> não é estritamente igual (valor ou tipo)
+
+
+if (condição)
