@@ -65,7 +65,10 @@ Operadores de atribuição:
 * `--` -> atribuição com  **decremento 1** (pode ser *pré* ou *pós* decrementado). Ex: `numero--`(pós-decremento) ou `--numero`(pré-decremento)
 
  
-Esta estrutura exibe no arquivo
+Esta estrutura exibe no console se a condição testada é true (verdadeira) ou false (falsa). A condição armazena o resultado da comparação entre duas variáveis, como segue:
+
+const a = 'a', b = 'A';
+const condicao = a == b;
 
 ## operadores-compsracao.js
 Neste arquivo conhecemos os operadores de comparacao e a estrutura lógica de decisão **if-else**.

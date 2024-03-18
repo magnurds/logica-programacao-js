@@ -5,12 +5,13 @@
 
 
 
-const nota1 = 8, nota2 = 9, nota3 = 10;
+const nota1 = 6, nota2 = 7, nota3 = 1;
 const media = (nota1 + nota2 + nota3)/3; 
+
 if (media >= 7)  {
-     console.log('Aprovado');
+     console.log(`Aprovado com média ${media.toFixed(2)}`);
 } else if (media>=5) { 
-   console.log('Exame');
+   console.log(`Exame com média ${media.toFixed(2)}`);
 } else {
-  console.log('Reprovado');
+  console.log(`Reprovado com media ${media.toFixed(2)}`);
 }
