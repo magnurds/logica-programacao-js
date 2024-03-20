@@ -1,15 +1,12 @@
 
-  const temperatura = parseFloat (window.prompt('Digite a temperatura'));
-  const escalaAtual = window.prompt('Digite a escala atual').toUpperCase();
-  const escalaFutura = window.prompt('Digite a escala futura')
+  const
+  temperatura = parseFloat(window.prompt('Digite a temperatura')),
+  temperaturaAtual = window.prompt('Digite aescala atual: \nC,F,K').toLocaleUpperCase(),
+  escalaConversao = window.prompt('Digite a escala para conversão: \nC,F,K').toUpperCase();
 
-// parseFloat() - converte texto para tipo number com ponto decimal
-// parseInt() - converte textopara tiponumber inteiro
-// toUpperCase() - método que converte o texto em maiúsculas
-// toLowerCase() - método que converte o texto em minúsculas
+  //processamento
+  if(!isNaN(temperaturaAtual)) {
 
-
-
-window.alert(`A temperatura convertida é ${temperatura + 273.15}`)
-   console.log(typeof(temperatura));
-
+    const
+    escalaAtual = window.prompt('Digite a escala atual: \nC,F,K')
+  }
