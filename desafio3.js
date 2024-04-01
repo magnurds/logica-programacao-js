@@ -69,4 +69,5 @@ function converteTemperatura(temperaturaAtual, escalaAtual, escalaConversao) {
         msgErro: msgErro
     }; 
 
+    
 }

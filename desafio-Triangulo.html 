@@ -1,0 +1,15 @@
+a = float(input('Digite o valor do primeiro lado: '))
+b = float(input('Valor do segundo lado: '))
+c = float(input('Valor terceiro lado: '))
+
+if (a + b < c ) or (b + c < a) or (c + a < b):
+print('Não pode ser um triângulo')
+
+elif (a == b) and (a == c) and (b == c):
+print('Esse é um triângulo EQUILÁTERO')
+
+elif (a == b and c < a) or (b == c and a < b) or (c == a and b < c):
+print('Esse é um triângulo ISÓCELES')
+
+else:
+print('Esse é um triângulo ESCALENO')
