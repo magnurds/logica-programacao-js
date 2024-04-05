@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buscador de Nomes</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1>Buscador de Nomes</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <form action="">
+        <label for="">Digite o nome:</label>
+        <input type="text" id="procuraNome">
+
+        <button type="button" id="btProcurar">Procurar</button>
+        <button type="reset">Limpar</button>
+    </form>
+    <div id="nomeDigitado"></div>
+    <div id="resposta"></div>
+
+    <script>
+        function procuraNome(nome) {
+
+            const baseNomes = ["Magno", "Maria", "Messias", "Marluci", "Hildebrando", "Tiago", "Vítor", "Eva", "Simone", "Adão"];
+
+            let nomeEncontrado;
+
+            if (baseNomes.includes(nome)) {
+                nomeEncontrado = 'Achei'
+            } else {
+                nomeEncontrado = 'Não achei'
+            }
+
+            return nomeEncontrado;
+        }
+
+        document.querySelector('#btProcurar').addEventListener('click', () => {
+            const nome = document.querySelector('#procuraNome').value;
+            const nomeEncontrado = procuraNome(nome);
+
+            document.querySelector('#resposta').innerHTML = nomeEncontrado;
+            document.querySelector('#nomedigitado').innerHTML = nomeEncontrado;
+        })
+    </script>
+
 </body>
 </html>
