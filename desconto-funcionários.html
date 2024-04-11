@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconto para Funcionários</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <a href="index.html">↩ Home</a>
+    <h1 class="titulo-pagina">Desconto para Funcionários</h1>
+    
+
+    <nav>
+        <ul>
+           
+        </ul>
+    </nav>
+    <h1>Desconto</h1>
+
+    <form action="">
+        
+        <label for="valorCompra">Valor da Compra</label>
+        <input type="number" id="valorCompra">
+
+        <label for="desconto">Você é:</label>
+        <select id="desconto">
+            <option value="C">Cliente</option>
+            <option value="F" selected>Funcionário</option>
+            <option value="V">Vip</option>
+        </select>
+    
+
+    <button type="button" id="ad">Aplicar desconto</button>
+    <button type="reset" id="limpar">Limpar</button>
+
+    </form>
+    
+    <div id="valorAplicado"></div>
+    
+    <script>
+
+        document.querySelector('#ad').addEventListener('click', function(){
+            const compra = document.querySelector('#valorCompra').value;
+            const cliente = document.querySelector('#desconto').value;
+        
+            const valorAplicado = totalDesconto(compra, cliente);
+        
+            document.querySelector('#valorAplicado').innerHTML = valorAplicado;
+        })
+        
+function totalDesconto(valorCompra, desconto){
+
+let descontoAplicado;
+
+// desconto = valor * percentualDesconto / 100
+
+if (desconto == 'V') {
+       descontoAplicado = `O desconto aplicado é de ${valorCompra * 5/100}`;
+    } else if (desconto == 'F') {
+        descontoAplicado = `O desconto aplicado é de ${valorCompra * 10/100}`;
+    } else {
+        descontoAplicado = `Não foi aplicado desconto`;
+    }
+    return descontoAplicado;
+}
+
+
+    </script>
+
+</body>
+</html>

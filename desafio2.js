@@ -25,8 +25,3 @@ function calculaIMC(peso, altura) {
     return mensagem;
 
 }
-
-
-
-
-

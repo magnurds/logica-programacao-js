@@ -3,47 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Desafios e Exercícios</title>
 </head>
 <body>
+    <h1>Desafios e Exercícios</h1>
 
-<h2>Exercicios</h2>
+    <h2>Exercícios</h2>
 
-<nav>
-    <ul>
-        <li><a href="classificacao-triangulo.html">Exercicio 1 -
-            Classificação de um triângulo</a></li>
-
-        <li><a href="desconto-funcionario.html">Exercicio 2 -
-            Desconto de funcionario</a></li>    
-
-        <li><a href="jogo-futebol.html">Exercicio 3 -
-            Placar de futebol</a></li>  
-            
-        <li><a href="busca-nomes.html">Exercicio 4 -
-            Busca de um nome</a></li>   
-
-            <li><a href="tabela-preco.html">Exercicio 5 - 
-            Posto de gasolina</a></li>
-
-            <li><a href="tabela-desconto">Exercicio 6 - 
-            Produtos com desconto</a></li>           
-
-            <li><a href="taxa-natalidade">Exercicio 7 - 
-            Taxa de natalidade e mortalidade</a></li>
-
-
-
-
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="classificacao-triangulo.html">Exercício 1 - Classificação de um triângulo</a></li>            
+            <li><a href="desconto-funcionários.html">Exercício2 - Desconto para Funcionários</a></li>
+            <li><a href="jogo-futebol.html">Exercício 3 - Jogo de Futebol</a></li>
+            <li><a href="busca-nome.html">Exercício 4 - Busca nome</a></li>
+            <li><a href="posto-gasolina.html">Exercício 5 - Posto de Gasolina  </a></li>
+            <li><a href="produtos-desconto.html">Exercício 6 - Produtos com Desconto</a></li>
+            <li><a href="taxa-natalidade.html">Exercício 7 - Taxa de Natalidade e Mortalidade</a></li>
 
 
 
 
 
-    <h1>Programinhas</h1>
-    
+
+        </ul>
+    </nav>
 
     <h2>Calculadora de IMC</h2>
 
@@ -68,7 +51,7 @@
     <form action="">
 
         <label for="valorTemperatura">Temperatura:</label>
-        <input type="number" id="valorTemperatura">
+        <input type="text" id="valorTemperatura">
 
         <label for="escalaAtual">De:</label>
         <select id="escalaAtual">
@@ -91,13 +74,12 @@
 
     <div id="resultadoTemp"></div>
 
-
     <script src="desafio2.js"></script>
     <script src="desafio3.js"></script>
     
     <script>
 
-        // Início Desafio 2
+        // Início Desafio 2 
         document.querySelector('#btCalcIMC').addEventListener('click', function () {
             const peso = document.querySelector('#peso').value;
             const altura = document.querySelector('#altura').value;
@@ -120,8 +102,21 @@
 
             const conversao = converteTemperatura(temperaturaAtual, escalaAtual, escalaConvertida);
 
-            document.querySelector('#resultadoTemp').innerHTML = `Temperatura convertida: ${conversao.temperaturaConvertida + conversao.escalaConversao}`;
+            // Tratamento de erros Desafio 3
+            if (conversao.msgErro === 'Ok') {
+
+                document.querySelector('#resultadoTemp').innerHTML = `Temperatura convertida: ${conversao.temperaturaConvertida + (conversao.grauEscala ? ' °' : ' ') + conversao.escalaConversao}`;
+
+            } else {
+
+                document.querySelector('#resultadoTemp').innerHTML = conversao.msgErro;
+            }
         });
+
+        document.querySelector('#btLimpaTemp').addEventListener('click', function () {
+            document.querySelector('#resultadoTemp').innerHTML = '';
+        });
+        
 
 
     </script>
