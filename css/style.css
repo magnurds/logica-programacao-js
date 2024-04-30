@@ -102,3 +102,7 @@ button:active {
 .acao-negativa:active {
     background-color: #e82375;
 }
+
+.monetario::before {
+    content: "R$" ;
+} 

@@ -1,76 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Produtos com Desconto</title>
+<html lang="pt-BR">
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6 | Produtos com desconto</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-  </head>
-  <body>
+<body>
+    <h1 class="titulo-pagina">Produtos com desconto</h1>
 
-    <a href="index.html">↩ Home</a>
-    <h1 class="titulo-pagina">Produtos com Desconto</h1>
-    
+    <main>
+
+        <form action="">
+
+            <div class="controle-form">
+                <label for="codigoProduto">Código do produto:</label>
+                <input type="number" id="codigoProduto" required autofocus>
+            </div>
+
+            <div class="controle-form">
+                <label for="qtdeProduto">Quantidade:</label>
+                <input type="number" id="qtdeProduto" required>
+            </div>
+
+            <div class="botoes">
+                <button type="button" class="acao-positiva" id="btCalcular">Calcular</button>
+                <button type="reset" class="acao-negativa">Limpar</button>
+            </div>
+        </form>
+
+        <div id="resultado"></div>
+
+    </main>
 
     <script>
-      // Faça um algoritmo para ler: a descrição do produto (nome), a quantidade adquirida e o
-      // preço unitário. Calcular e escrever o total (total = quantidade adquirida * preço unitário), o
-      // desconto é o total a pagar (total a pagar = total - desconto), sabendo-se que:
 
-      // - Se quantidade <= 5 o desconto será de 2%
-      // - Se quantidade > 5 e quantidade <=10 o desconto será de 3%
-      // - Se quantidade > 10 o desconto será de 5%
+        document.querySelector('#btCalcular').addEventListener('click', () => {
 
-      // Dica: utilize if / else if / else
+            const codigoProduto = Number(document.querySelector('#codigoProduto').value);
 
-      //entrada de dados
-      // = criar variável para receber o nome do produto
-      // = perguntar ao usuário qual vai ser a quantidade de produtos
-      // = perguntar o preço unitário do produto
+            const qtdeProduto = Number(document.querySelector('#qtdeProduto').value);
 
-      const nomeProduto = prompt("Informe o nome do produto:");
-      const quantidadeProduto = Number(
-        prompt("Informe a quantidade de produtos:")
-      );
-      const valorUnitarioProduto = parseFloat(
-        prompt("Informe o valor unitário do produto:")
-      );
+            const produto = calculaDesconto(codigoProduto, qtdeProduto);
+            const pDescricao = document.createElement('p');
+            pDescricao.innerHTML = produto.descricao;
+            pDescricao.setAttribute
 
-      //processamento de dados
-      // = realizar o calculo do total da quantidade do produto * valor unitário do produto
-      // = realidar o calculo do desconto com base na quantidade de produtos que o usuário vai comprar
-      if (quantidadeProduto <= 5) {
-        const calculoTotal = quantidadeProduto * valorUnitarioProduto * 0.02; //retorno do valor com desconto
+            const pValorFinal = document.createElement('p');
+            pValorFinal.innerHTML = produto.valorFinal.tofixed(2);
+            
+            pValorFinal.classList.add('monetario');
+            
+            document.querySelector('#resultado').append(pDescricao, pValorFinal);
 
-        alert(
-          `Seu produto ${nomeProduto}, quantidade: ${quantidadeProduto}, valor total: R$${
-            valorUnitarioProduto - calculoTotal
-          } reais`
-        );
-      } else if (quantidadeProduto <= 10) {
-        const calculoTotal = quantidadeProduto * valorUnitarioProduto * 0.03;
 
-        alert(
-          `Seu produto ${nomeProduto} com desconto de 3%, quantidade: ${quantidadeProduto}, valor total: R$${(
-            valorUnitarioProduto - calculoTotal
-          ).toFixed(2)} reais`
-        );
-      } else {
-        const calculoTotal = quantidadeProduto * valorUnitarioProduto;
-        const valorDesconto = calculoTotal - calculoTotal * 0.05;
+        });
 
-        alert(
-          `Seu produto ${nomeProduto} com desconto de 5%, quantidade: ${quantidadeProduto}, valor total: R$${(
-            valorDesconto
-          ).toFixed(2)} reais. Sem desconto: ${calculoTotal}`
-        );
-      }
+        // JSON -> JavaScript Object Notation
+        const produtos = [
+            {
+                codigo: 1,
+                preco: 5.99,
+                descricao: "Salgado"
+            },
+            {
+                codigo: 2,
+                preco: 4.50,
+                descricao: "Snickers"
+            },
+            {
+                codigo: 3,
+                preco: 0.5,
+                descricao: "Quebra-queixo"
+            }
+        ];
 
-      //saída de dados
-      // = mostrar a saída dos produtos que ela escolher e a quantidade e o preço de cada produto
+        function calculaDesconto(codigoProduto, qtdeProduto) {
+
+            let preco;
+            let descricao;
+            let desconto;
+            let valorFinal;
+
+            // percorre o vetor de produtos para pesquisa
+            for (let i = 0; i < produtos.length; i++) {
+
+                // se o código for igual ao procurado, obtém o preco
+                if (produtos[i].codigo === codigoProduto) {
+
+                    preco = produtos[i].preco;
+                    descricao = produtos[i].descricao;
+                }
+            }
+
+            // atribui o desconto com base na quantidade comprada
+            if (qtdeProduto >= 3 && qtdeProduto <= 5) {
+
+                desconto = 0.02;
+
+            } else if (qtdeProduto >= 6 && qtdeProduto <= 10) {
+
+                desconto = 0.03;
+
+            } else if (qtdeProduto > 10) {
+
+                desconto = 0.05;
+
+            } else {
+
+                desconto = 0;
+
+            }
+
+            valorFinal = (preco * qtdeProduto) - (preco * qtdeProduto * desconto);
+
+            return {
+                codigo: codigoProduto,
+                preco: preco,
+                descricao: descricao,
+                valorFinal: valorFinal
+            };
+
+
+        }
     </script>
-  </body>
+
+</body>
+
 </html>
