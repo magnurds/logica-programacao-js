@@ -47,15 +47,14 @@
             const produto = calculaDesconto(codigoProduto, qtdeProduto);
             const pDescricao = document.createElement('p');
             pDescricao.innerHTML = produto.descricao;
-            pDescricao.setAttribute
+            pDescricao.setAttribute('data-produto', produto.codigo);
 
             const pValorFinal = document.createElement('p');
-            pValorFinal.innerHTML = produto.valorFinal.tofixed(2);
-            
-            pValorFinal.classList.add('monetario');
-            
-            document.querySelector('#resultado').append(pDescricao, pValorFinal);
+            pValorFinal.innerHTML = produto.valorFinal.toFixed(2);
 
+            pValorFinal.classList.add('monetario');
+
+            document.querySelector('#resultado').append(pDescricao, pValorFinal);
 
         });
 
