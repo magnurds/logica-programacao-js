@@ -1,3 +1,18 @@
+const ancoras = [
+    { "url": "/index.html","texto": "Home"},
+    { "url": "/exercicios/exercicio1.html", "texto": "Exerc. 1"},
+    { "url": "/exercicios/exercicio6.html", "texto": "Exerc. 6"}
+];
+
+function criaAncora(url, texto) {
+
+    const ancora = document.createElement('a');
+    ancora.setAttribute('href', url);
+    ancora.innerHTML = texto;
+
+    return ancora;
+}
+
 // <a> do Home
 const aHome = document.createElement('a');
 aHome.setAttribute('href', '/index.html');

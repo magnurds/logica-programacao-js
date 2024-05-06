@@ -61,11 +61,12 @@
             </select>
 
             <label for="escalaConvertida">Para:</label>
-            <select id="escalaConvertida">
+              <input list="escalas" id="escalaConvertida" value="F">
+              <datalist id="escalas">
                 <option value="C">Celsius</option>
-                <option value="F" selected>Fahrenheit</option>
-                <option value="K">Kelvin</option>
-            </select>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option> 
+                </datalist> 
 
             <button type="button" id="btConverteTemp">Converter</button>
             <button type="reset" id="btLimpaTemp">Limpar</button>
