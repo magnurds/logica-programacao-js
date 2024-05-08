@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-color: rgb(218, 218, 90);
+    background-color: rgba(245, 145, 13, 0.26);
 }
 
 .titulo-pagina {
@@ -65,9 +67,12 @@ input {
 
 button {
     width: 100%;
+    height: 2.6rem;
     line-height: 2.2;
     border: none;
     border-radius: 4px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
 }
 
 button:hover {
@@ -81,6 +86,8 @@ button:active {
 .acao-positiva {
     background-color: #2078ec;
     color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .acao-positiva:hover {

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de um nome</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <style>
 
@@ -28,9 +28,8 @@
     </style>
 </head>
 <body>
-    <a href="index.html">↩ Home</a>
-    <h1 class="titulo-pagina">Buscador de Nomes</h1>
-       
+
+    <h1 class="titulo-pagina">Busca nome</h1>
 
     <main>
 
@@ -73,6 +72,7 @@
             }
         });
 
+
         document.querySelector('#btCadastrar').addEventListener('click', () => {
 
             nomes.push(document.querySelector('#nome').value);
@@ -106,7 +106,8 @@
                 
                 document.querySelector('#resultado').innerHTML = 'NÃO ACHEI';
 
-            }            
+            }
+            
         });
 
     </script>

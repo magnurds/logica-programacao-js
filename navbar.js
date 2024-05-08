@@ -1,7 +1,12 @@
 const ancoras = [
-    { "url": "/index.html","texto": "Home"},
-    { "url": "/exercicios/exercicio1.html", "texto": "Exerc. 1"},
-    { "url": "/exercicios/exercicio6.html", "texto": "Exerc. 6"}
+    { "url": "/index.html", "texto": "Home" },
+    { "url": "/exercicios/exercicio1.html", "texto": "Exerc. 1" },
+    { "url": "/exercicios/exercicio2.html", "texto": "Exerc. 2" },
+    { "url": "/exercicios/exercicio3.html", "texto": "Exerc. 3" },
+    { "url": "/exercicios/exercicio4.html", "texto": "Exerc. 4" },
+    { "url": "/exercicios/exercicio5.html", "texto": "Exerc. 5" },
+    { "url": "/exercicios/exercicio6.html", "texto": "Exerc. 6" },
+    { "url": "/exercicios/exercicio7.html", "texto": "Exerc. 7" }
 ];
 
 function criaAncora(url, texto) {
@@ -13,43 +18,39 @@ function criaAncora(url, texto) {
     return ancora;
 }
 
-// <a> do Home
-const aHome = document.createElement('a');
-aHome.setAttribute('href', '/index.html');
-aHome.innerHTML = 'Home';
+function criaLi(ancora) {
+    
+    const li = document.createElement('li');
+    li.appendChild(ancora);
+    
+    return li;
+}
 
-// <li> do Home
-const liHome = document.createElement('li');
-liHome.appendChild(aHome);
+function criaUlNav(ancoras) {
 
-// <a> do exercício 1
-const aExercicio1 = document.createElement('a');
-aExercicio1.setAttribute('href', '/exercicios/exercicio1.html');
-aExercicio1.innerHTML = 'Exerc. 1';
+    const ul = document.createElement('ul');
 
-// <li> do exercício 1
-const liExercicio1 = document.createElement('li');
-liExercicio1.appendChild(aExercicio1);
+    ancoras.forEach(ancora => {
+        const a = criaAncora(ancora.url, ancora.texto);
+        const li = criaLi(a);
+        ul.appendChild(li);
+    });
 
-// <a> do exercício 6
-const aExercicio6 = document.createElement('a');
-aExercicio6.setAttribute('href', '/exercicios/exercicio6.html');
-aExercicio6.innerHTML = 'Exerc. 6';
-
-// <li> do exercício 6
-const liExercicio6 = document.createElement('li');
-liExercicio6.appendChild(aExercicio6);
-
-// <ul> do menu
-const ulNav = document.createElement('ul');
-ulNav.append(liHome, liExercicio1, liExercicio6);
+    return ul;
+}
 
 // <nav> do menu
 const nav = document.createElement('nav');
 nav.classList.add('menu-navegacao');
-nav.appendChild(ulNav);
+nav.appendChild(criaUlNav(ancoras));
 
 // Aqui segue de acordo com a solução do professor...
+
+// Implementação do menu sanduíche
+
+const iMenuSanduba = document.createElement('i');
+iMenuSanduba.innerHTML = "☰";
+iMenuSanduba.style.color = "#fff";
 
 // <span>Desafios & Exercícios</span>
 const spanLogo = document.createElement('span');
@@ -58,13 +59,14 @@ spanLogo.innerHTML = 'Desafios & Exercícios';
 // <div class="logo">
 const divLogo = document.createElement('div');
 divLogo.classList.add('logo');
-divLogo.appendChild(spanLogo);
+divLogo.append(iMenuSanduba, spanLogo);
 
 // <div class="logo-menu">
 const divLogoMenu = document.createElement('div');
 divLogoMenu.classList.add('logo-menu');
 divLogoMenu.append(divLogo, nav);
 
+// <header>
 const header = document.createElement('header');
 header.appendChild(divLogoMenu);
 
@@ -72,9 +74,9 @@ header.appendChild(divLogoMenu);
 document.body.insertAdjacentElement('afterbegin', header);
 
 
-// Estilos do Navbar
+// ** Estilos do Navbar **
 const linkNavbar = document.createElement('link');
 linkNavbar.setAttribute('rel', 'stylesheet');
 linkNavbar.setAttribute('href', '/css/navbar.css');
 
-document.head.appendChild(linkNavbar);
+document.querySelector('[href="/css/responsividade.css"]').insertAdjacentElement('beforebegin', linkNavbar);
